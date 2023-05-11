@@ -38,6 +38,12 @@
   <label for="time" class="form-label">시간</label>
   <input type="time" class="form-control" id="time" placeholder="1234" name="">
 </div>
+  <div class="mb-3">
+  <label for="range" class="form-label">범위</label>
+  <input type="range" class="form-control" id="range" placeholder="rnage">
+</div>
+  <label for="color" class="form-label">색상 선택</label>
+<input type="color" class="form-control form-control-color" id="color" value="#563d7c" title="Choose your color">
 
 
 <div class="mb-3">
@@ -60,7 +66,7 @@
 	// 밑에 영역은 이벤트 리스너(이벤트가 발생할때까지 기다렸다가 이벤트가 들어오면 발생(출력)한다.)
  $("#btn").on("click", function(){
 	alert("name;" + $("#name").val());
-	console.log("name;" + $("#name").val());
+	console.log("name;" + $("#name").val()); 
 
 //	alert("name;" + $("#name").val() + "입니다.");
 //	$("#name").val("전지현");
@@ -74,14 +80,16 @@
  
  $("#btn").on("click", function(){
 
-		console.log("password;" + $("#password").val());
+	console.log("password;" + $("#password").val());
 		console.log("email;" + $("#email").val());
 		console.log("tel;" + $("#tel").val());
 		console.log("number;" + $("#number").val());
 		console.log("month;" + $("#month").val());
 		console.log("time;" + $("#time").val());
+		console.log("range;" + $("#range").val());
+		console.log("color;" + $("#color").val());
 	 });
-	 
+
 
 
 

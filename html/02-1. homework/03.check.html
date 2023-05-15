@@ -33,6 +33,7 @@
   </label>
 </div>
 
+
   
   <hr>
   
@@ -117,10 +118,8 @@
 	
 
 // js 표기
-/*
-	$("#btn").on("click",function() {
-  
-		
+
+
 		var arrayGender = new Array();
 		var arrayTelecom = new Array();
 		var arrayHealth = new Array();
@@ -162,11 +161,29 @@
 			console.log(arrayHealth[i]);
 		}
 		
-	});
-	*/
+
+
+
+// js 내용 변경
+/* 
+ 		document.getElementsByName("gender")[0].checked = false;
+		document.getElementsByName("gender")[1].checked = true;
+		document.getElementById("etc").checked = true;
+ */	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 // jquery 표기
-$("#btn").on("click", function() {
+
+/* 
+	$("#btn").on("click", function() {
 
     var arrayGender = [];
     var arrayTelecom = [];
@@ -200,6 +217,15 @@ $("#btn").on("click", function() {
     });
 
 });
+ 
+
+ $('input[name="gender"]:checked').each(function() {
+	    if ($(this).val() === "female") {
+	        $(this).attr("id", "female");
+	    }
+	    arrayGender.push($(this).val());
+	});
+ */
 
 
 	</script>

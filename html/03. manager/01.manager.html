@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang=ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>관리자 화면</title>
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+	crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/f676149ecf.js"
+	crossorigin="anonymous"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+
+
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* 헤더 영역*/
+#header {
+	width: 100%;
+	height: 100px;
+	background-color: rgba(0, 0, 0, .1);
+	position: relative;
+}
+
+#header_logo {
+	width: 200px;
+	height: 54px;
+	position: absolute;
+	top: 25px;
+	left: 100px;
+	background-color: rgba(0, 0, 0, .1);
+	background-image: url(../images/kaionex.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#header_title {
+	position: absolute;
+	left: 400px;
+	top: 30px;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+#language {
+	width: 150px;
+	position: absolute;
+	top: 35px;
+	right: 10px;
+}
+
+#header_photo {
+	width: 50px;
+	height: 50px;
+	border: 1px solid black;
+	border-radius: 50%;
+	position: absolute;
+	right: 500px;
+	top: 27px;
+	font-size: 35px;
+	text-align: center;
+}
+
+#header_photo a {
+	color: black;
+}
+
+#header_manager_info {
+	width: 100px;
+	height: 80px;
+	background-color: rgba(0, 0, 0, .1);
+	position: absolute;
+	right: 380px;
+	top: 10px;
+}
+
+#header_manager_info p {
+	text-align: center;
+	padding-top: 5px;
+	box-sizing: border-box;
+}
+
+#header_manager_info p:first-child {
+	font-size: 20px;
+}
+
+/* 내비 영역 */
+#nav {
+	background-color: rgba(0, 0, 255, .1);
+}
+
+/* 탭메뉴 영역 */
+#tab_menu {
+	width: 20%;
+	height: 400px;
+	float: left;
+	position: relative;
+}
+
+#tab_menu ul {
+	position: absolute;
+	top: 15px;
+	left: 5px;
+}
+
+#tab_menu ul li {
+	padding-top: 15px;
+	color: black;
+}
+
+#tab_menu ul li a {
+	color: black;
+	font-weight: bold;
+}
+
+#tab_menu>ul>li:nth-child(4) {
+	font-size: 20px;
+}
+
+/* 섹션 영역(국가코드 관리) */
+#section {
+	width: 80%;
+	height: 800px;
+	background-color: rgba(255, 0, 0, .1);
+	float: left;
+	position: relative;
+}
+
+#section h2 {
+	clear: both;
+	padding: 15px 0 15px 5px;
+	box-sizing: border-box;
+	display: block;
+	padding: 15px 0 15px 5px;
+}
+
+/* 검색 영역 */
+#data_search {
+	width: 100%;
+	height: 100px;
+	background-color: rgba(0, 0, 0, .1);
+}
+
+.form-src, .datepicker {
+	width: 180px;
+	margin: 10px;
+	display: inline-block;
+}
+
+#table_number {
+	width: 100px;
+	float: right;
+}
+
+.tg {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	clear: both;
+}
+
+.tg td {
+	border-color: black;
+	border-style: solid;
+	border-width: 1px;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	overflow: hidden;
+	padding: 10px 5px;
+	word-break: normal;
+}
+
+.tg th {
+	border-color: black;
+	border-style: solid;
+	border-width: 1px;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	overflow: hidden;
+	padding: 10px 5px;
+	word-break: normal;
+}
+
+.tg .tg-llyw {
+	background-color: #c0c0c0;
+	border-color: inherit;
+	text-align: left;
+	vertical-align: top
+}
+
+.tg .tg-0pky {
+	border-color: inherit;
+	text-align: left;
+	vertical-align: top
+}
+
+#pageBtn {
+	margin: 1% 42% 0;
+}
+
+#btn01 {
+	position: absolute;
+	left: 0;
+}
+
+#btn02 {
+	position: absolute;
+	right: 0;
+}
+
+#btnRed01, #btnRed02 {
+	background-color: red;
+}
+
+#btnGreen {
+	background-color: green;
+}
+
+#btnBlue {
+	background-color: blue;
+}
+
+#footer {
+	text-align: center;
+}
+
+#footer p {
+	display: inline;
+}
+
+#footer p::after {
+	content: "|";
+	margin: 0 8px;
+}
+
+#footer p:last-child {
+	content: "
+}
+
+#footer span {
+	display: block;
+}
+</style>
+
+
+
+</head>
+<body>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+		crossorigin="anonymous"></script>
+
+	<div id="wrap">
+		<!-- 헤더 영역 -->
+		<header id="header">
+			<div id="header_logo"></div>
+			<div id="header_title">ABC Management System</div>
+			<div id="header_photo">
+				<a href="#none"><i class="fa-solid fa-user"></i></a>
+			</div>
+			<div id="header_manager_info">
+				<p>s.k. Song</p>
+				<p>Administrator</p>
+			</div>
+
+
+
+				<select class="form-select form-select-sm"
+					aria-label=".form-select-sm example" id="language">
+					<option selected>언어</option>
+					<option value="1">한국어</option>
+					<option value="2">English</option>
+					<option value="3">日本語</option>
+					<option value="4">中文</option>
+				</select>
+
+
+
+
+		</header>
+		<!-- 내비 영역 -->
+		<nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Navbar</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="#">회원 관리</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"> 서비스 관리</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">사이트 관리</a>
+						</li>
+						<li class="nav-item"><a class="nav-link disabled">로그 관리</a></li>
+						<li class="nav-item"><a class="nav-link disabled">시스템 관리</a>
+						</li>
+						<li class="nav-item"><a class="nav-link disabled">시스템 관리</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- 탭메뉴 영역 -->
+		<div id="tab_menu">
+			<ul>
+				<li><a href="#"><i class="fa-solid fa-angle-right"></i>
+						Home</a></li>
+				<li><a href="#"><i class="fa-solid fa-angle-right"></i>
+						Dashboard</a></li>
+				<li><a href="#"><i class="fa-solid fa-angle-right"></i>
+						Orders</a></li>
+				<li><i class="fa-thin fa-horizontal-rule"
+					style="color: #616161;"></i></li>
+				<li><a href="#"><i class="fa-solid fa-angle-right"></i>
+						Account</a></li>
+
+			</ul>
+		</div>
+
+		<!-- 섹션 영역 -->
+		<section id="section">
+			<h2>국가코드 관리</h2>
+			<!-- 섹션 검색 영역 -->
+		<form>
+			<div id="data_search">
+				<select class="form-select form-src"
+					aria-label="Default select example">
+					<option selected>N</option>
+					<option value="1">One</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+				</select> 
+				<select class="form-select form-src"
+					aria-label="Default select example">
+					<option selected>날짜</option>
+				</select> 
+				
+				<label for="inputPassword5" class="form-label "></label> 
+				<input type="text" class="form-control datepicker" aria-labelledby="passwordHelpBlock" placeholder="시작일"> 
+				<label for="inputPassword5" class="form-label "></label> 
+				<input type="text" class="form-control datepicker" aria-labelledby="passwordHelpBlock" placeholder="종료일">
+				<select class="form-select form-src" aria-label="Default select example">
+					<option selected>검색구분</option>
+				</select> 
+				<label	for="inputPassword5" class="form-label "></label> 
+					<input type="text" class="form-control datepicker" aria-labelledby="passwordHelpBlock" placeholder="검색어">
+			</div>
+		</form>
+			
+			
+
+
+
+			<!-- 섹션 테이블 영역 -->
+			<span>total : 3</span> <select class="form-select form-select-sm"
+				aria-label=".form-select-sm example" id="table_number">
+				<option value="1" selected>10</option>
+				<option value="2">30</option>
+				<option value="3">50</option>
+			</select>
+
+
+
+
+			<table class="tg">
+				<thead>
+					<tr>
+						<th class="tg-0pky"></th>
+						<th class="tg-0pky">#</th>
+						<th class="tg-0pky">Seq</th>
+						<th class="tg-0pky">국가 이름</th>
+						<th class="tg-0pky">국가 이름(영문)</th>
+						<th class="tg-0pky">국가 코드(2자리)</th>
+						<th class="tg-0pky">국가 코드(3자리)</th>
+						<th class="tg-0pky">사용</th>
+						<th class="tg-0pky">순서</th>
+						<th class="tg-0pky">등록일</th>
+						<th class="tg-0pky">수정일</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="tg-llyw">3</td>
+						<td class="tg-llyw">4</td>
+						<td class="tg-llyw">중국</td>
+						<td class="tg-llyw"></td>
+						<td class="tg-llyw">CHINA</td>
+						<td class="tg-llyw">CN</td>
+						<td class="tg-llyw">CHN</td>
+						<td class="tg-llyw">Y</td>
+						<td class="tg-llyw">4</td>
+						<td class="tg-llyw">2023-05-15 09:20:06</td>
+						<td class="tg-llyw">2023-05-15 09:20:06</td>
+					</tr>
+					<tr>
+						<td class="tg-0pky">2</td>
+						<td class="tg-0pky">2</td>
+						<td class="tg-0pky">미국</td>
+						<td class="tg-0pky"></td>
+						<td class="tg-0pky">USA</td>
+						<td class="tg-0pky">US</td>
+						<td class="tg-0pky">USA</td>
+						<td class="tg-0pky">Y</td>
+						<td class="tg-0pky">2</td>
+						<td class="tg-0pky">2023-05-15 09:03:28</td>
+						<td class="tg-0pky">2023-05-15 09:03:28</td>
+					</tr>
+					<tr>
+						<td class="tg-llyw">1</td>
+						<td class="tg-llyw">1</td>
+						<td class="tg-llyw">대한민국</td>
+						<td class="tg-llyw"></td>
+						<td class="tg-llyw">KOREA</td>
+						<td class="tg-llyw">KR</td>
+						<td class="tg-llyw">KOR</td>
+						<td class="tg-llyw">Y</td>
+						<td class="tg-llyw">1</td>
+						<td class="tg-llyw">2023-04-15 21:21:02</td>
+						<td class="tg-llyw">2023-04-15 21:21:02</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<nav aria-label="..." id="pageBtn">
+				<ul class="pagination pagination">
+					<li class="page-item active" aria-current="page"><span
+						class="page-link">1</span></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+				</ul>
+			</nav>
+
+			<div class="d-grid gap-2 d-md-block" id="btn01">
+				<button class="btn btn-primary" type="button" id="btnRed01">
+					<i class="fa-solid fa-x"></i>
+				</button>
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+					data-bs-target="#staticBackdrop">
+					<i class="fa-solid fa-trash"></i>
+				</button>
+
+				<!-- Modal -->
+				<div class="modal fade" id="staticBackdrop"
+					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+					aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h1 class="modal-title fs-5" id="staticBackdropLabel">자료 삭제</h1>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">자료를 삭제하시겠습니까?</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-bs-dismiss="modal">NO</button>
+								<button type="button" class="btn btn-primary">YES</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="d-grid gap-2 d-md-block" id="btn02">
+				<button class="btn btn-primary" type="button" id="btnGreen">
+					<i class="fa-solid fa-file-excel"></i>
+				</button>
+				<button class="btn btn-primary" type="button" id="btnBlue">
+					<i class="fa-solid fa-plus"></i>
+				</button>
+			</div>
+
+
+
+		</section>
+
+
+		<footer id="footer">
+
+			<p>(주)마이컴퍼니</p>
+			<p>대표 송승관</p>
+			<p>사업자등록번호 107-20-84217</p>
+			<p>경기도 김포시 양촌읍</p>
+			<span>Copyright 2014. Mycompany Inc. all rights reserverd</span>
+
+
+
+		</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<form class="row g-3 needs-validation" novalidate></form>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+
+</body>
+</html>

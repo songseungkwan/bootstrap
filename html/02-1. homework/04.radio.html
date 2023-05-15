@@ -18,23 +18,23 @@
 
 
 	<form autocomplete="off">
-		성별
+		과일
 		<div class="form-check">
-			<input class="form-check-input" type="radio" value="male" name="gender" id="male">
-			<label class="form-check-label" for="male">
-				남성
+			<input class="form-check-input" type="radio" value="apple" name="fruit" id="apple">
+			<label class="form-check-label" for="apple">
+				사과
 			</label>
 		</div>
 		<div class="form-check">
-			<input class="form-check-input" type="radio" value="female" name="gender" id="female">
-			<label class="form-check-label" for="female">
-				여성
+			<input class="form-check-input" type="radio" value="strawberry" name="fruit" id="strawberry">
+			<label class="form-check-label" for="strawberry">
+				딸기
 			</label>
 		</div>
 		<div class="form-check">
-			<input class="form-check-input" type="radio" value="etc" name="gender" id="etc">
-			<label class="form-check-label" for="etc">
-				기타
+			<input class="form-check-input" type="radio" value="watermelon" name="fruit" id="watermelon">
+			<label class="form-check-label" for="watermelon">
+				수박
 			</label>
 		</div>
 
@@ -149,9 +149,9 @@
 		var genderBtn = document.querySelector("#btn");
 
 		genderBtn.addEventListener("click", function () {
-			var gender = document.querySelector("input[name='gender']:checked").value;
-			alert(gender);
-			console.log(gender);
+			var fruit = document.querySelector("input[name='fruit']:checked").value;
+			alert(fruit);
+			console.log(fruit);
 		});
 
 		var telecomBtn = document.querySelector("#btn");

@@ -19,8 +19,8 @@
 	<form autocomplete="off">
 <!-- input -->
 		<div class="mb-3">
-			<label for="name" class="form-label">이름</label> <input type="text"
-				class="form-control" id="name" placeholder="abcde" name="">
+			<label for="name" class="form-label">이름</label> 
+			<input type="text" class="form-control" id="name"  name="name">
 		</div>
 		
 <!-- select -->
@@ -35,45 +35,45 @@
 		</select> 
 		
 <!-- checkbox -->
+		취미
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="run"
+				name="hobby" id="run"> <label class="form-check-label"
+				for="run"> 런닝 </label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="swim"
+				name="hobby" id="swim"> <label class="form-check-label"
+				for="swim"> 수영 </label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="reading"
+				name="hobby" id="reading"> <label class="form-check-label"
+				for="reading"> 독서 </label>
+		</div>
+
+<!-- radio -->
 		성별
 		<div class="form-check">
-			<input class="form-check-input" type="checkbox" value="male"
+			<input class="form-check-input" type="radio" value="mali"
 				name="gender" id="male"> <label class="form-check-label"
 				for="male"> 남성 </label>
 		</div>
 		<div class="form-check">
-			<input class="form-check-input" type="checkbox" value="female"
+			<input class="form-check-input" type="radio" value="female"
 				name="gender" id="female"> <label class="form-check-label"
 				for="female"> 여성 </label>
 		</div>
 		<div class="form-check">
-			<input class="form-check-input" type="checkbox" value="etc"
+			<input class="form-check-input" type="radio" value="etc"
 				name="gender" id="etc"> <label class="form-check-label"
 				for="etc"> 기타 </label>
 		</div>
 
-<!-- radio -->
-		맨몸운동
-		<div class="form-check">
-			<input class="form-check-input" type="radio" value="push_up"
-				name="health" id="push_up"> <label class="form-check-label"
-				for="push_up"> 푸쉬업 </label>
-		</div>
-		<div class="form-check">
-			<input class="form-check-input" type="radio" value="pull_up"
-				name="health" id="pull_up"> <label class="form-check-label"
-				for="pull_up"> 풀업 </label>
-		</div>
-		<div class="form-check">
-			<input class="form-check-input" type="radio" value="dips"
-				name="health" id="dips"> <label class="form-check-label"
-				for="dips"> 딥스 </label>
-		</div>
-
 <!-- 버튼 -->
 		<div class="mb-3">
-			<button type="button" class="btn btn-primary" id="btnJquery">Jquery</button>
-			<button type="button" class="btn btn-primary" id="btnJavascript">Javascript</button>
+			<button type="button" class="btn btn-primary" id="btnJquery">J-query</button>
+			<button type="button" class="btn btn-primary" id="btnJavascript">Java-script</button>
 		</div>
 	</form>
 
@@ -86,46 +86,54 @@
 		// input
 		
 		$("#btnJquery").on("click", function(){
- 	 	alert("정보가 저장되었습니다.");
-		alert("name;" + $("#name").val());
+			
+/*  	 	alert("정보가 저장되었습니다.");
+		alert( $.trim($("#name").val()); */
 		
-			/* 
+		
+			// 썜 코드		
+			
 			alert( $.trim($("#name").val()) );
     		$("#name").val("전지현")
     		alert( $.trim($("#name").val()) ); 
-    		*/
+    		
+    		//
 
 	});
 		
-		$("#btnJquery").on("click", function(){
-			console.log("name;" + $("#name").val());
+/*
+$("#btnJquery").on("click", function(){
+			console.log("name;" + $("#name").val()); 
 	}); 
+*/
 		
 		// 내용 변경
 		
 			$("#btnJquery").on("click", function(){
  		
- 	 	alert("정보가 변경되었습니다.");
+/*  	 	alert("정보가 변경되었습니다.");
 		alert("name;" + ("전지현") + "입니다.");
 		console.log("name;" + ("전지현") + "입니다.");
-	});
+	}); */
 		
 		// select
 	
 		$("#btnJquery").on("click",function(){ 
-			alert("country;" + $("#country").val());	
+			
+/* 			alert("country;" + $("#country").val()); */	
 
-			/* 
+			
 			alert("country: " + $("#country").val());
      		$("#country").val("4").prop("selected", true);
     		alert("country: " + $("#country").val());
-    		*/
+    		
 	});
 		
 		
 		
-		// checkbox
-		$("#btnJquery").on("click", function() {
+	// checkbox
+		
+/* 		$("#btnJquery").on("click", function() {
 
     var arrayGender = [];
 
@@ -140,9 +148,10 @@
     });
 
 
-});
+}); */
  
-	    /* 
+ 		// 쌤 
+	    
 		var arrayHobbyJquery = new Array();
 		
         for (var i=0; i<$("input:checkbox[name=hobby]").length; i++) {
@@ -168,27 +177,27 @@
         
 //	        $("#run").prop("checked", false);
 //	        $("#reading").prop("checked", true); 
-		*/
+		
 	    
 	    
 
  
  
  
- 		// radio
+	// radio
 
 		$("#btnJquery").on("click", function () {
 
-			alert(document.querySelector("input[name='health']:checked").value);
-			console.log(document.querySelector("input[name='health']:checked").value);
+/* 			alert(document.querySelector("input[name='health']:checked").value);
+			console.log(document.querySelector("input[name='health']:checked").value); */
 
 			
-			/* 
+			// 쌤
+			
 			alert( $('input:radio[name=gender]:checked').val() );
 	        $("input:radio[name=gender]").eq(0).prop("checked", false);
 	        $("input:radio[name=gender]").eq(1).prop("checked", true);
 	        alert( $('input:radio[name=gender]:checked').val() ); 
-	        */
 		});
 		
 		
@@ -204,43 +213,36 @@
 
 	// input
 	document.getElementById("btnJavascript").addEventListener("click", function() {
-  		alert("정보가 저장되었습니다.");
- 		alert("name;" + document.getElementById("name").value); 
-	 });
+/*  		alert("name;" + document.getElementById("name").value);  */
+
 			
-			
-		 	
-	document.getElementById("btnJavascript").addEventListener("click", function() {
-  		console.log("name;" + document.getElementById("name").value); 
-	 });	
-	
-	
-				/* 
+				// 쌤
+				
 				alert( document.getElementById("name").value.trim() );
 				document.getElementById("name").value = "전지현";
 				alert( document.getElementById("name").value.trim() );
-				*/
+				
+				
+	 });
 	
 	// select	
 		document.getElementById("btnJavascript").addEventListener("click",function(){
-		alert("food;" + document.getElementById("food").value);
-	});
+/* 		alert("food;" + document.getElementById("food").value); */
+
 	
-	
-	document.getElementById("btnJavascript").addEventListener("click",function(){
-		console.log("food;" + document.getElementById("food").value);
-	});
-		
- 				/* 
+
+				// 쌤
+ 				 
  				alert( document.getElementById("country").value );
  	    		document.getElementById("country").options[3].selected = true;
  	    		alert( document.getElementById("country").value ); 
- 	    		*/
+ 	    		
+		});
 	
 	// checkbox
 	
 	document.getElementById("btnJavascript").addEventListener("click", function() {
-	var arrayGender = new Array();
+	/* 	var arrayGender = new Array();
 		var arrayTelecom = new Array();
 		var arrayHealth = new Array();
 		
@@ -258,9 +260,11 @@
 		for (var i=0; i<arrayGender.length; i++ ) {
 			console.log(arrayGender[i]);
 		}
+		 */
 		
+		 
+		// 쌤
 		
-		/* 
 		var arrayHobbyJavascript = new Array();
   	  
         for (var i=0; i<document.getElementsByName("hobby").length; i++) {
@@ -278,7 +282,7 @@
         
 		document.getElementsByName("hobby")[0].checked = false;
 		document.getElementsByName("hobby")[2].checked = true; 
-		*/
+		
 			
 		
 		
@@ -290,22 +294,22 @@
 	
 	document.getElementById("btnJavascript").addEventListener("click", function() {
 
-		var health = document.querySelector("input[name='health']:checked").value;
-			alert(health);
-			console.log(health);
+/* 		var health = document.querySelector("input[name='health']:checked").value;
+			alert(health); */
+
 			
+			// 쌤
 			
-			/* 
 			alert( document.querySelector("input[name='gender']:checked").value );
 			document.getElementsByName("gender")[0].checked = false;
 			document.getElementsByName("gender")[1].checked = true; 
-			*/
+			
 
 		
 	 });		
 		
 	
-	// 선생님 코드
+/* 	// 선생님 코드
 	
 	// jquery	
     	$("#btnJquery").on("click", function(){
@@ -329,6 +333,12 @@
 					arrayHobbyJquery.push( $("input:checkbox[name=hobby]").eq(i).val() );
 				}
 	        }
+	        
+	        ":checkbox"는 input 요소 중에서 체크박스 타입을 가진 것을 선택하고, "[name=hobby]"는 이름이 "hobby"인 input 요소를 선택합니다. 
+	        ".eq(i)"는 선택된 요소 중에서 i번째 요소를 선택합니다. 마지막으로 ".is(":checked")"는 선택된 체크박스 요소의 체크 상태가 true인지 확인하며, 
+	        이 값이 true라면 전체 문장의 결과는 true가 됩니다.
+
+	        따라서 이 코드는 "hobby"라는 이름을 가진 체크박스(input 요소) 중에서 i번째 요소의 체크 상태가 true인지를 확인합니다.
 	        
 // 	        $("input:checkbox[name=hobby]").each(function (index) {
 // 	        	if($(this).is(":checked")==true){
@@ -397,7 +407,7 @@
 			document.getElementsByName("gender")[1].checked = true;
 		
     	});
-    	
+    	 */
 	
 	
 	</script>

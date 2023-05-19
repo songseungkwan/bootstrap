@@ -158,6 +158,11 @@ a {
 	display: block;
 	padding: 15px 0 15px 5px;
 }
+.text-center {
+	position: relative;
+}
+
+
 
 /* 데이터 추가 영역 */
 .red {
@@ -179,6 +184,11 @@ a {
 }
 #UseStatus {
 	margin-bottom: 10px;
+}
+
+#btnCtrl {
+	display:flex;
+	justify-content: space-between;
 }
 
 .btn_bookmark {
@@ -406,19 +416,19 @@ a {
 			<h2>국가코드 관리</h2>
 			<!-- 섹션 검색 영역 -->
 			<form class="row g-3 needs-validation" novalidate>
-			<div class="container text-center">
-				<div class="row ">
+				<div class="container text-center">
+					<div class="row ">
 				
 			<!-- 첫번째 행 -->
-					<div class="col-6 ">
-						<div class="mb-3 text_left ">
-							<label for="validationCustom03"
-								class="form-label form-left">seq<span class="red">*</span></label>
-							<input type="text" class="form-control "id="validationCustom03" 
-							placeholder="자동생성" disabled>
+						<div class="col-6 ">
+							<div class="mb-3 text_left ">
+								<label for="validationCustom03"
+									class="form-label form-left">seq<span class="red">*</span></label>
+								<input type="text" class="form-control "id="validationCustom03" 
+								placeholder="자동생성" disabled>
+							</div>
 						</div>
-					</div>
-					
+
 					<div class="col-6"></div>
 
 			<!-- 두번째 행 -->
@@ -435,18 +445,18 @@ a {
 			<!-- 세번째 행 -->
 					<div class="col-6">
 						<div class="mb-3 text_left">
-							<label for="exampleFormControlInput1"
-								class="form-label form-left">국가 이름(한글)</label> <input
-								type="text" class="form-control " id="exampleFormControlInput1"
-								placeholder="">
+							<label for="nationName"
+								class="form form-left">국가 이름(한글)</label> <input
+								type="text" class="form-control " id="nationName"
+								placeholder="" novalidate>
 						</div>
 					</div>
 					<div class="col-6">
 						<div class="mb-3 text_left">
 							<label for="exampleFormControlInput1"
-								class="form-label form-left">국가 이름(영문)</label> <input
+								class="form form-left">국가 이름(영문)</label> <input
 								type="text" class="form-control " id="exampleFormControlInput1"
-								placeholder="영대소문자">
+								placeholder="영대소문자" novalidate>
 						</div>
 					</div>
 
@@ -493,20 +503,18 @@ a {
 						<div class="mb-3 text_left">
 							<label for="exampleFormControlTextarea1" class="form-label">설명</label>
 							<textarea class="form-control " id="exampleFormControlTextarea1"
-								rows="5"></textarea>
+								rows="5" novalidate></textarea>
 						</div>
 					</div>
 					<div class="col-6"></div>
 				</div>
-				
+				<div id="btnCtrl">
+					<a href="01.manager.html"><button type="button" class="btn btn-primary btn_bars"><i class="fa-solid fa-bars"></i></button></a>
+					<button type="submit" class="btn btn-primary btn_bookmark"><i class="fa-regular fa-bookmark"></i></button>
+				</div>
 			</div>
-			
-			
-			<button type="submit" class="btn btn-primary btn_bookmark"><i class="fa-regular fa-bookmark"></i></button>
 		</form>
-		<a href="01.manager.html"><button class="btn btn-primary"><i class="fa-solid fa-bars"></i></button></a>
-		</section>
-
+	</section>
 
 	<footer id="footer">
 

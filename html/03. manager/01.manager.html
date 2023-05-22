@@ -42,7 +42,7 @@ a {
 #header {
 	width: 100%;
 	height: 100px;
-	background-color: lightgray;
+
 	position: relative;
 }
 
@@ -52,7 +52,7 @@ a {
 	position: absolute;
 	top: 25px;
 	left: 100px;
-	background-color: rgba(0, 0, 0, .1);
+
 	background-image: url(../images/kaionex.png);
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -148,7 +148,7 @@ a {
 
 /* 섹션 영역(국가코드 관리) */
 #section {
-	width: 80%;
+	width: 79%;
 	height: 600px;
 	float: left;
 	position: relative;
@@ -160,6 +160,10 @@ a {
 	box-sizing: border-box;
 	display: block;
 	padding: 15px 0 15px 5px;
+}
+
+#form {
+	margin-bottom: 30px;
 }
 
 
@@ -192,6 +196,8 @@ a {
 
 .hidden {
 	font-size: 0;
+	width: 0;
+	height: 0;
 }
 
 /* 테이블 갯수 표시 */
@@ -205,7 +211,20 @@ a {
 	width: 100%;
 	border-collapse: collapse;
 	border-spacing: 0;
+	border-color: #ddd;
 	clear: both;
+	
+	
+}
+
+#first_row {
+	background-color: black;
+	color: #fff;
+
+}
+
+#first_row th {
+	font-weight: 700;
 }
 
 .tg td {
@@ -342,8 +361,8 @@ a {
 		</header>
 
 		<!-- 내비 영역 -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav">
-	<div class="container-fluid">
+<nav class="navbar navbar-expand-lg bg-body-tertiary" >
+	<div class="container-fluid" id="nav">
 		<a class="navbar-brand" href="#">Navbar</a>
 		<button class="navbar-toggler" type="button"
 			data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -390,7 +409,7 @@ a {
 	<section id="section">
 		<h2>국가코드 관리</h2>
 		<!-- 섹션 검색 영역 -->
-		<form class="row g-3 needs-validation" novalidate>
+		<form class="row g-3 needs-validation" novalidate id="form">
 			<div class="col-md-2">
 				<label for="validationCustom04" class="form-label"></label> 
 				<select	class="form-select" id="validationCustom04" required>
@@ -411,19 +430,19 @@ a {
 			
 			<div class="col-md-3">
 				<label for="validationCustom03" class="form-label"></label> 
-				<input type="text" class="form-control datepicker" placeholder="시작일" required>
+				<input type="text" class="form-control datepicker" placeholder="시작일" required id="startDate">
 				<div class="invalid-feedback">시작일을 선택해주세요.</div>
 			</div>
 			
 			<div class="col-md-3">
 				<label for="validationCustom03" class="form-label"></label> 
-				<input type="text" class="form-control datepicker" placeholder="종료일" required>
+				<input type="text" class="form-control datepicker" placeholder="종료일" required id="endDate">
 				<div class="invalid-feedback">종료일을 선택해주세요.</div>
 			</div>
 			
 			<div class="col-md-3">
 				<label for="validationCustom04" class="form-label"></label> 
-				<select class="form-select datepicker" id="validationCustom04" required>
+				<select class="form-select" id="validationCustom04" required>
 					<option selected disabled value="">검색구분</option>
 					<option>...</option>
 				</select>
@@ -435,13 +454,16 @@ a {
 				<div class="invalid-feedback">검색어를 적어주세요.</div>
 			</div>
 			
+			<!-- 
 			<div class="col-12">
 				<div class="form-check hidden">
-					<!-- <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>  -->
-					<!-- <label class="form-check-label" for="invalidCheck"> Agree to terms and conditions </label> -->
-					<!-- <div class="invalid-feedback">You must agree before submitting.</div> -->
+					<input class="form-check-input" type="checkbox" value="" id="invalidCheck" required> 
+					<label class="form-check-label" for="invalidCheck"> Agree to terms and conditions </label>
+					<div class="invalid-feedback">You must agree before submitting.</div>
 				</div>
-			</div>
+			</div> 
+			-->
+			
 			<div class="col-12">
 				<button class="btn btn-primary btnMagnifying" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
 				<button class="btn btn-primary btnRefresh" type="button"><i class="fa-sharp fa-solid fa-rotate-right"></i></button>
@@ -449,7 +471,8 @@ a {
 		</form>
 
 		<!-- 섹션 테이블 영역 -->
-		<span>total : 3</span> <select class="form-select form-select-sm"
+		<span>total : 3</span> 
+		<select class="form-select form-select-sm"
 			aria-label=".form-select-sm example" id="table_number">
 			<option value="1" selected>10</option>
 			<option value="2">30</option>
@@ -461,8 +484,14 @@ a {
 		<!-- 데이터 테이블 -->
 		<table class="tg">
 			<thead>
-				<tr>
-					<th class="tg-0pky"></th>
+				<tr id="first_row">
+					<th class="tg-0pky">
+						<div class="form-check">
+					    	<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+  							<label class="form-check-label" for="flexCheckDefault"></label>
+						</div>
+					</th>
+					
 					<th class="tg-0pky">#</th>
 					<th class="tg-0pky">Seq</th>
 					<th class="tg-0pky">국가 이름</th>
@@ -477,10 +506,18 @@ a {
 			</thead>
 			<tbody>
 				<tr>
+					<td class="tg-llyw">
+						<div class="form-check">
+					    	<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+  							<label class="form-check-label" for="flexCheckDefault"></label>
+						</div>
+					</td>
 					<td class="tg-llyw">3</td>
 					<td class="tg-llyw">4</td>
-					<td class="tg-llyw">중국</td>
-					<td class="tg-llyw"></td>
+					
+						<td class="tg-llyw"><a href="#none">중국</a></td>
+					
+					
 					<td class="tg-llyw">CHINA</td>
 					<td class="tg-llyw">CN</td>
 					<td class="tg-llyw">CHN</td>
@@ -490,10 +527,16 @@ a {
 					<td class="tg-llyw">2023-05-15 09:20:06</td>
 				</tr>
 				<tr>
+					<td class="tg-0pky">
+						<div class="form-check">
+					    	<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+  							<label class="form-check-label" for="flexCheckDefault"></label>
+						</div>
+					</td>
 					<td class="tg-0pky">2</td>
 					<td class="tg-0pky">2</td>
-					<td class="tg-0pky">미국</td>
-					<td class="tg-0pky"></td>
+					<td class="tg-0pky"><a href="#none">미국</a></td>
+					
 					<td class="tg-0pky">USA</td>
 					<td class="tg-0pky">US</td>
 					<td class="tg-0pky">USA</td>
@@ -503,10 +546,16 @@ a {
 					<td class="tg-0pky">2023-05-15 09:03:28</td>
 				</tr>
 				<tr>
+					<td class="tg-llyw">
+						<div class="form-check">
+					    	<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+  							<label class="form-check-label" for="flexCheckDefault"></label>
+						</div>
+					</td>
 					<td class="tg-llyw">1</td>
 					<td class="tg-llyw">1</td>
-					<td class="tg-llyw">대한민국</td>
-					<td class="tg-llyw"></td>
+					<td class="tg-llyw"><a href="#none">대한민국</a></td>
+					
 					<td class="tg-llyw">KOREA</td>
 					<td class="tg-llyw">KR</td>
 					<td class="tg-llyw">KOR</td>
@@ -583,7 +632,7 @@ a {
 			<p>대표 송승관</p>
 			<p>사업자등록번호 107-20-84217</p>
 			<p>경기도 김포시 양촌읍</p>
-			<span>Copyright 2014. Mycompany Inc. all rights reserverd</span>
+			<span>Copyright 2014. My company Inc. all rights reserved</span>
 		</footer>
 
 		<form class="row g-3 needs-validation" novalidate></form>
@@ -595,8 +644,11 @@ a {
 	
 
 	  $( function() {
-	    $(".datepicker").datepicker();
+	    $("#startDate").datepicker();
+	    $("#endDate").datepicker();
 	  } );
+	  
+	  
 
 	  
 	

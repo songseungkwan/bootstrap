@@ -44,7 +44,7 @@ a {
 #header {
 	width: 100%;
 	height: 100px;
-	background-color: lightgray;
+
 	position: relative;
 }
 
@@ -94,7 +94,6 @@ a {
 #header_manager_info {
 	width: 100px;
 	height: 80px;
-
 	position: absolute;
 	right: 380px;
 	top: 10px;
@@ -369,8 +368,8 @@ a {
 
 		</header>
 		<!-- 내비 영역 -->
-		<nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav">
-			<div class="container-fluid">
+		<nav class="navbar navbar-expand-lg bg-body-tertiary" >
+			<div class="container-fluid" id="nav">
 				<a class="navbar-brand" href="#">Navbar</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -438,6 +437,8 @@ a {
 								class="form-label form-left">국가 이름<span class="red">*</span></label>
 							<input type="text" class="form-control "id="validationCustom04" 
 								placeholder="" required>
+							<div class="invalid-feedback">국가 이름을 적어주세요.</div>
+								
 						</div>
 					</div>
 					<div class="col-6"></div>
@@ -446,17 +447,17 @@ a {
 					<div class="col-6">
 						<div class="mb-3 text_left">
 							<label for="nationName"
-								class="form form-left">국가 이름(한글)</label> <input
-								type="text" class="form-control " id="nationName"
-								placeholder="" novalidate>
+								class="form form-left">국가 이름(한글)</label> 
+								<input type="text" class="form-control " id="nationName"
+								placeholder="" norequired>
 						</div>
 					</div>
 					<div class="col-6">
-						<div class="mb-3 text_left">
+						<div class="text_left">
 							<label for="exampleFormControlInput1"
-								class="form form-left">국가 이름(영문)</label> <input
-								type="text" class="form-control " id="exampleFormControlInput1"
-								placeholder="영대소문자" novalidate>
+								class="form form-left">국가 이름(영문)</label> 
+								<input type="text" class="form-control " id="exampleFormControlInput1"
+								placeholder="영대소문자" norequired>
 						</div>
 					</div>
 
@@ -467,14 +468,15 @@ a {
 								class="form-label form-left">국가 코드(2자리)<span class="red">*</span></label>
 							<input type="text" class="form-control"
 								id="validationCustom04" placeholder="영대소문자" required>
+							<div class="invalid-feedback">국가 코드(2자리)를 적어주세요.</div>
 						</div>
 					</div>
 					<div class="col-6">
 						<div class="mb-3 text_left">
 							<label for="validationCustom04"
 								class="form-label form-left">국가 코드(3자리)<span class="red">*</span></label>
-							<input type="text" class="form-control "
-								id="validationCustom04" placeholder="영대소문자" required>
+							<input type="text" class="form-control "id="validationCustom04" placeholder="영대소문자" required>
+							<div class="invalid-feedback">국가코드(3자리)를 적어주세요.</div>
 						</div>
 					</div>
 
@@ -493,8 +495,8 @@ a {
 						<div class="mb-3 text_left">
 							<label for="validationCustom04"
 								class="form-label form-left">순서<span class="red">*</span></label>
-							<input type="text" class="form-control "
-								id="validationCustom04" placeholder="숫자(0 ~ 255)" required>
+							<input type="text" class="form-control " id="validationCustom04" placeholder="숫자(0 ~ 255)" required>
+							<div class="invalid-feedback">순서를 입력해주세요.</div>
 						</div>
 					</div>
 
